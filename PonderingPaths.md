@@ -107,7 +107,7 @@ Writing the file to /home/hacker/~!
 pwn.college{Y4kVMD8G4gHcWiS12HlA-RImJ0R.dNzM4QDL0cDM1czW}
 ```
 ### Explanation:
-expalsion of ~ is an absolude path(/home/hacker). 
+expalsion of ~ is an absolute path(/home/hacker). 
 ~/~ will be expanded to /home/hacker/~. 
 Tried running command 1 but failed to receive the flag. 
 Running command 2 will copy the flag into a file present in the home directory and allow us to view it
