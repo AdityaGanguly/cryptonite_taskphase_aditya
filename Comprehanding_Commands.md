@@ -186,11 +186,15 @@ Then I tried to used the cd command on /usr/local/lib/python3.8/dist-packages/pw
 # LINKING FILES
 ### Command:
 ```
-
+1)hacker@commands~linking-files:~$ ln -s /flag /home/hacker/not-the-flag
+2)hacker@commands~linking-files:~$ /challenge/catflag
 ```
 ### Explanation:
+Initially i ran command 2 and saw that it was trying to open a file named not-the-flag but it didnt exist.
+so i created a symbolic link to /flag using command, i named the linked file not-the-flag(as it was getting diaplayed by command 2) and then used command 2 to trick the system and got the flag through the link.
+
 ### Flag:
->
+>pwn.college{k7GF8P23XWooYadjPSmRut9XK7_.dlTM1UDL0cDM1czW}
 
 
 
