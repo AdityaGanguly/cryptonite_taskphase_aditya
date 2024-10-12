@@ -43,12 +43,22 @@ Then i used command 2 to sed the value of COLLEGE variable to PWN but did not ex
 Both commands gave me the output that i have assigned the correct values so i used command 3 and got thr flag.
 ### Flag:
 >pwn.college{k3LUcXAaO4HY4b6TTkrZYnCvSZF.dJjN1QDL0cDM1czW}
-# PRINTED EXPORTED VARIABLES
+# PRINTING EXPORTED VARIABLES
 ### Command:
 ```
 hacker@variables~printing-exported-variables:~$ env
 ```
 ### Explanation:
-
+Used the env command which printed every exported variable.It displayed the contents of every variable amoung which there was the flag 
 ### Flag:
 >pwn.college{QkCPY5AdtErw6y-BOLyc-D5lTDy.dhTN1QDL0cDM1czW}
+# STORING COMMAND OUTPUT
+### Command:
+```
+1)hacker@variables~storing-command-output:~$ PWN=$(/challenge/run)
+2)hacker@variables~storing-command-output:~$ echo $PWN
+```
+### Explanation:
+I used command 1 to store the outout of /challenge/run in the variable named PWN and displayed the contents of PWN using echo command as seen in command 2 and got the flag.
+### Flag:
+>pwn.college{MO1Vxbl3ccI8TPJGFEZ8ueVOvdC.dVzN0UDL0cDM1czW}
