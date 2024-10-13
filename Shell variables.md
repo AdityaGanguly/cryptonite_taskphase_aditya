@@ -62,3 +62,24 @@ Used the env command which printed every exported variable.It displayed the cont
 I used command 1 to store the outout of /challenge/run in the variable named PWN and displayed the contents of PWN using echo command as seen in command 2 and got the flag.
 ### Flag:
 >pwn.college{MO1Vxbl3ccI8TPJGFEZ8ueVOvdC.dVzN0UDL0cDM1czW}
+# READING INPUT
+### Command:
+```
+hacker@variables~reading-input:~$ read PWN
+input : COLLEGE
+```
+### Explanation:
+Used the read command to take input from the user for the PWN variable.
+I entered COLLEGE as the input and since the input was correct i got the flag.
+### Flag:
+>pwn.college{IozyA2MbOSho6Q78zwlZ2TrbU6s.dhzN1QDL0cDM1czW}
+# READING FILES
+### Command:
+```
+hacker@variables~reading-files:~$ read PWN < /challenge/read_me
+```
+### Explanation:
+I used the above command to redirect the standard input of /challenge/read_me to the PWN variable by using the read command which gave me the flag.
+
+### Flag:
+>pwn.college{8RkXd9zyNI_jNPpaahj7YDPCEFd.dBjM4QDL0cDM1czW}
