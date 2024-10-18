@@ -131,7 +131,7 @@ After this i needed to give the group read permissions which i did as seen in co
 The next instructions needed me to remove the read permissions from groups as seen in command 9.
 The final set of instructions told me to remove the write permissions from other users/groups which i did in command 10.
 Now it gave the output that i solved all the 8 rounds correctely and now i can use cmod on the /flag file.
-So i used the cmod command as seen in commans 11 and made the file readable by the user(me).
+So i used the chmod command as seen in commans 11 and made the file readable by the user(me).
 Then i used the cat /flag command and got the flag.
 
 ### Flag:
@@ -172,7 +172,27 @@ I used command 7 to change the permissions of user to execute, to remove all per
 I used command 8 to change the permissions of user to read and write and removed all permissions from others while kept the group permissions unchanged.
 Finally i used command 9 to change the permissions of user to write and execute, groups to read and others to execute.
 After this i got the output that all the permissions that i had set were correct and now i can use cmod on /flag file.
-So i used cmod on /flag file and made it readable to the user(me) by using the u+r arguments.
+So i used chmod on /flag file and made it readable to the user(me) by using the u+r arguments.
 Then i used the cat flag command and got the flag.
 ### Flag:
 >pwn.college{IwhiZsgeyjX_BRXhBmUVJiTnthN.dNTM5QDL0cDM1czW}
+# THE SUID BIT
+### Command:
+```
+1)hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
+2)hacker@permissions~the-suid-bit:~$ ls -l /challenge/getroot
+output:
+-rwsr-xr-x 1 root root 155 Jul 12 10:30 /challenge/getroot
+3)hacker@permissions~the-suid-bit:~$ /challenge/getroot
+output
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+Here is your shell...
+4)root@permissions~the-suid-bit:~# cat /flag
+```
+### Explanation:
+Firstly i used the chmod command and gave it the u+s arguments as seen in command 1 to add the SUID to /challenge/getroot program.
+Then i used command 2 to check whether the SUID has been added or not.
+Upon getting conformation i used command 3 to run the /challenge/getroot program which was successful and opened another shell where i was the root user.
+In this new shell since i was the root user i directly used the cat command as seen in command 4 and got thr flag.
+### Flag:
+>pwn.college{g34WUZab4uAB94czkg5GoHUzvxm.dNTM2QDL0cDM1czW}
