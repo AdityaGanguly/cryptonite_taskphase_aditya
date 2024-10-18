@@ -53,8 +53,19 @@ Finally i used the cat command and got the flag.
 # CHANGING PERMISSIONS
 ### Command:
 ```
-
+1)hacker@permissions~changing-permissions:~$ ls -l /flag
+output:
+-r-------- 1 root root 58 Oct 18 11:21 /flag
+2)hacker@permissions~changing-permissions:~$ chmod o+r /flag
+3)hacker@permissions~changing-permissions:~$ ls -l /flag
+output:
+-r-----r-- 1 root root 58 Oct 18 11:21 /flag
+4)hacker@permissions~changing-permissions:~$ cat /flag
 ```
 ### Explanation:
+Firstly i used ls - /flag command to check the permissions of /flag file and according to the output found out that only the root user could read it.
+I realised that i would have to use the chmod command and manipulate the permissions.
+Since i am the hacker user i coudnt use 'u' , 'g' along with chmod to get the flag. I would have to use 'o' which is for other users and groups and hacker comes into this category. So i used command 2 and use o+r to give read access to other groups/users for the /flag file.
+I used the ls -l /flag command to check whether the changes i made were successful and upon getting the output used the catr /flag command which gave me the flag.
 ### Flag:
->
+>pwn.college{MSBiLzN1Bpb-fGaG7xbPIPOg5IE.dNzNyUDL0cDM1czW}
