@@ -136,3 +136,43 @@ Then i used the cat /flag command and got the flag.
 
 ### Flag:
 >pwn.college{Ic3L04bB4g893vAcEy-6JEc8tVv.dBTM2QDL0cDM1czW}
+# PERMISSIONS SETTING PRACTICE
+### Command:
+```
+1)hacker@permissions~permissions-setting-practice:~$ chmod
+2)hacker@permissions~permissions-setting-practice:~$ chmod u=rx,g=r,o=x /challenge/pwn
+3)hacker@permissions~permissions-setting-practice:~$ chmod g=rw,o=wx /challenge/pwn
+4)hacker@permissions~permissions-setting-practice:~$ chmod u=rwx,g=rwx,o=x /challenge/pwn
+5)hacker@permissions~permissions-setting-practice:~$ chmod u=r,g=rw,o=- /challenge/pwn
+6)hacker@permissions~permissions-setting-practice:~$ chmod u=wx,g=x,o=wx /challenge/pwn
+7)hacker@permissions~permissions-setting-practice:~$ chmod u=x,g=-,o=w /challenge/pwn
+8)hacker@permissions~permissions-setting-practice:~$ chmod u=rw,o=- /challenge/pwn
+9)hacker@permissions~permissions-setting-practice:~$ chmod u=wx,g=r,o=x /challenge/pwn
+Output:
+You set the correct permissions!
+You've solved all 8 rounds! I have changed the ownership
+of the /flag file so that you can 'chmod' it. You won't be able to read
+it until you make it readable with chmod!
+10)hacker@permissions~permissions-setting-practice:~$ ls -l /flag
+Output:
+---------- 1 hacker hacker 58 Oct 18 14:28 /flag
+11)hacker@permissions~permissions-setting-practice:~$ chmod u+r /flag
+12)hacker@permissions~permissions-setting-practice:~$ cat /flag
+```
+### Explanation:
+In this challenge we cant use +,- along with chmod to change file permissions but instead use = which will set the new permissions overwriting the previous ones.
+Similar to the previous challenge since there were no instructions given i used command 1 and got the instructions along with the error message.
+As per the instructions:
+I used command 2 to change the permissions of user to read and execute,groups to read and others(world) to execute.
+I used command 3 to change the permissions of groups to read and write, others to write and execute and no changes to user.
+I used command 4 to change the permissions of user to read,write and execute, groups to also read,write and execute and others to just execute.
+I used command 5 to change the permissions of user to read, groups to read and write ad removed all permissions from others.
+I used command 6 to change the permissions of user to write and execute, groups to only execute and others to write and execute.
+I used command 7 to change the permissions of user to execute, to remove all permissions of groups, and give others the permissions to write.
+I used command 8 to change the permissions of user to read and write and removed all permissions from others while kept the group permissions unchanged.
+Finally i used command 9 to change the permissions of user to write and execute, groups to read and others to execute.
+After this i got the output that all the permissions that i had set were correct and now i can use cmod on /flag file.
+So i used cmod on /flag file and made it readable to the user(me) by using the u+r arguments.
+Then i used the cat flag command and got the flag.
+### Flag:
+>pwn.college{IwhiZsgeyjX_BRXhBmUVJiTnthN.dNTM5QDL0cDM1czW}
