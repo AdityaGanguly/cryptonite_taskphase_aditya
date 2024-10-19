@@ -25,6 +25,13 @@ In this challenge I had to run /challenge/pwn and /challenge/college on the x.sh
 Since we dont have the knowledge of how to use the text editor from the terminal yet, for this challenge i used the vs code workspace to create the x.sh shell script.
 On that script i ran the /challenge/pwn and /challenge/college commands.
 Now i went back to the linux terminal and ran the command bash.sh and it gave me the output that i have successfully written to the shell scipt and gave me the flag.
+
+NOTE: i realised way too late that i coud've done this by an alternate method purely on the linux terminal by using echo and output redirection:
+```
+hacker@chaining~your-first-shell-script:~$ touch x.sh
+hacker@chaining~your-first-shell-script:~$ echo "/challenge/pwn;/challenge/college" > x.sh
+hacker@chaining~your-first-shell-script:~$ bash x.sh
+```
 ### Flag:
 >pwn.college{8779lN9VD_6ooUktNiesaD2HP2c.dFzN4QDL0cDM1czW}
 # REDIRECTING SHELL OUTPUT
@@ -40,6 +47,14 @@ hacker@chaining~redirecting-script-output:~$ bash x.sh | /challenge/solve
 Firstly i created the shell script x.sh which cointains the /challenge/pwn and /challenge/college commands.
 Then on the terminal i used the piping operator to pipe the output of the script to the /challenge/solve command as seen above.
 Since the redirection was correct i got the flag through the standard output.
+
+NOTE:
+Similar to the previous problem here's the alternate method without using vs code:
+```
+hacker@chaining~your-first-shell-script:~$ touch x.sh
+hacker@chaining~redirecting-script-output:~$ echo "/challenge/pwn;/challenge/college" > x.sh
+hacker@chaining~redirecting-script-output:~$ bash x.sh | /challenge/solve
+```
 ### Flag:
 >pwn.college{MBLXxdEiHUu1IsJ-wBVbeWoIn7Q.dhTM5QDL0cDM1czW}
 # EXECUTABLE SHELL SCRIPTS
@@ -61,5 +76,15 @@ In the shell script i added the /challenge/solve command.
 Then back in the terminal i used ls -l x.sh to see what permissions are enabled.
 In this challenge i had to make the shell script executable by the user(me) so i used the chmod command with arguments u+x as seen in command 3.
 Then i used command 4 to run the shell script which invoked the /challenge/solve command(without using bash) and gave me the flag.
+
+NOTE : ALTERNATE METHOD:(used > to redirect the output of echo command which was "/challenge/solve" to x.sh) 
+```
+hacker@chaining~your-first-shell-script:~$ touch x.sh
+hacker@chaining~executable-shell-scripts:~$ echo "/challenge/solve" > x.sh
+hacker@chaining~executable-shell-scripts:~$ ls -l x.sh
+output : -rw-r--r-- 1 hacker hacker 17 Oct 19 12:24 x.sh
+hacker@chaining~executable-shell-scripts:~$ chmod u+x x.sh
+hacker@chaining~executable-shell-scripts:~$ /home/hacker/x.sh
+```
 ### Flag:
 >pwn.college{M-mzRDUfWVDIS6mky-btnmLENH9.dRzNyUDL0cDM1czW}
