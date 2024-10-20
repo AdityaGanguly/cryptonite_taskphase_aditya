@@ -34,10 +34,10 @@ Then i used command 2 to invoked the win command and got the flag
 ### Command:
 ```
 1)hacker@path~adding-commands:~$ touch win
-2)hacker@path~adding-commands:~$ PATH=$PATH:/home/hacker
+2)hacker@path~adding-commands:~$ PATH=/home/hacker:$PATH
 3)hacker@path~adding-commands:~$ echo $PATH
 Output:
-/run/challenge/bin:/run/workspace/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/hacker
+/home/hacker:/run/challenge/bin:/run/workspace/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 4)hacker@path~adding-commands:~$ ls /run/workspace/bin
 5)hacker@path~adding-commands:~$ echo "cat /flag" > /home/hacker/win
 6)hacker@path~adding-commands:~$ ls -l win
@@ -49,12 +49,14 @@ Output:
 10)hacker@path~adding-commands:~$ /challenge/run
 ```
 ### Explanation:
+(i felt this challenge to be really hard and did a lot of hit and trials so there might be some unneccessary codes)
+
 I used command 1 to create the win file.
-I used command 2 to add the /home/hacker directory to the PATH variable.
+I used command 2 to add the /home/hacker directory to the PATH variable(referred to the resourses section from pwn.college)
 I used command 3 to see what directories are present in the PATH variable and from command 4 found that cat is in /run/workspace/bin.
-Used command 5 to put the cat /flag command in win.
-Used chmod to make win executable as seen in command 8.
-Used command 10 and got the flag.
+I used command 5 to put the cat /flag command in win.
+Then i used chmod to make the win file executable as seen in command 8.
+Finally i used command 10 and got the flag.
 ### Flag:
 >pwn.college{w3mLxFjE7vTeAHUk2eOkoM_lBbO.dZzNyUDL0cDM1czW}
 # HIJACKING COMMANDS
