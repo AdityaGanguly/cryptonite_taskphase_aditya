@@ -80,5 +80,14 @@ Found 'rm' command at /home/hacker/rm. Executing!
 pwn.college{E_ts2LiTIE-HIhQI2dbhU0ULORz.ddzNyUDL0cDM1czW}
 ```
 ### Explanation:
+In this challenge /challenge/run deletes the flag using the rm command present in the PATH variable.
+Since i know that /challenge/run will try to look for the rm comand, lets try to fool it into giving me the flag by creating a fake rm file.
+
+So i used command 1 t create our fake rm file by using the touch command.
+Then i used the echo command as seen in command 2 to put the cat /flag command into rm to execute it and print the flag.
+Since the rm file is in the root directory i added it to the PATH variable by using command 3.(i referred to the resources section to learn how to do this).
+I used command 4 to check whether the root directory is not added in the PATH variable or not.
+I used command 6 to see what permissions are enabled for rm command and then used command 7 to enable the execute permission.
+Then i used the /challenge/run command as seen in command 9 and as i thought i went to my fake rm file and executed the cat /flag command and gave me the file.
 ### Flag:
 >pwn.college{E_ts2LiTIE-HIhQI2dbhU0ULORz.ddzNyUDL0cDM1czW}
