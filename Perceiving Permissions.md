@@ -121,17 +121,29 @@ it until you make it readable with chmod!
 ### Explanation:
 Initially since i didnt know(and wasnt told) what permissions to set for the /challenge/pwn program i tried using chmod with u+x to try and make it executable but it showed that the permissions are incorrect and the game has restarted.The good thing that came out of this is now along with the output showing that my command was incorrect it also showed the instructions of what to do.
 I used ls -l /flag command to check if the permissions have been restarted or not.
+
 Ok so i finally start with the quest:
+
 As per the instructions i needed to give the world and the groups write permissions so i used the chmod command as seen in command 3 and did so and the output showed that i was correct.
+
 As per the next instructions i needed to remove the write permissions from all the groups which i did as seen in command 4.
+
 Next i needed to add the write permissions back to the groups which i did in command 5.
+
 According to the next instructions i needed to remove the read permissions from everything which i did in command 6.
+
 Then i needed to give the user and the group the execute permission which i did in command 7.
+
 After this i needed to give the group read permissions which i did as seen in command 8.
+
 The next instructions needed me to remove the read permissions from groups as seen in command 9.
+
 The final set of instructions told me to remove the write permissions from other users/groups which i did in command 10.
+
 Now it gave the output that i solved all the 8 rounds correctely and now i can use cmod on the /flag file.
+
 So i used the chmod command as seen in commans 11 and made the file readable by the user(me).
+
 Then i used the cat /flag command and got the flag.
 
 ### Flag:
@@ -162,15 +174,25 @@ Output:
 ### Explanation:
 In this challenge we cant use +,- along with chmod to change file permissions but instead use = which will set the new permissions overwriting the previous ones.
 Similar to the previous challenge since there were no instructions given i used command 1 and got the instructions along with the error message.
+
 As per the instructions:
+
 I used command 2 to change the permissions of user to read and execute,groups to read and others(world) to execute.
+
 I used command 3 to change the permissions of groups to read and write, others to write and execute and no changes to user.
+
 I used command 4 to change the permissions of user to read,write and execute, groups to also read,write and execute and others to just execute.
+
 I used command 5 to change the permissions of user to read, groups to read and write ad removed all permissions from others.
+
 I used command 6 to change the permissions of user to write and execute, groups to only execute and others to write and execute.
+
 I used command 7 to change the permissions of user to execute, to remove all permissions of groups, and give others the permissions to write.
+
 I used command 8 to change the permissions of user to read and write and removed all permissions from others while kept the group permissions unchanged.
+
 Finally i used command 9 to change the permissions of user to write and execute, groups to read and others to execute.
+
 After this i got the output that all the permissions that i had set were correct and now i can use cmod on /flag file.
 So i used chmod on /flag file and made it readable to the user(me) by using the u+r arguments.
 Then i used the cat flag command and got the flag.
